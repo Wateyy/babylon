@@ -2,8 +2,13 @@ import { NextResponse } from 'next/server'
 import fs from 'fs'
 import path from 'path'
 
+// Define a type for the song info
+type SongInfo = {
+  [key: string]: { artist: string; duration: string }
+}
+
 // This is a mock database of song information
-const songInfo = {
+const songInfo: SongInfo = {
   'Quantum Mechanics.mp3': { artist: 'Ludwig', duration: '3:00' },
 }
 
@@ -26,3 +31,4 @@ export async function GET() {
 
   return NextResponse.json(songs)
 }
+
